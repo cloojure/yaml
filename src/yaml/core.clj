@@ -9,6 +9,12 @@
 (def parse-string
   reader/parse-string)
 
+(defn parse
+  "Parses a YAML string into a clojure map"
+  [string-in]
+  (into (sorted-map)
+    (parse-string string-in)))
+
 (defn- safe-read
   "Try and read a file. If it does not exist then return nil rather
    than an exception"
